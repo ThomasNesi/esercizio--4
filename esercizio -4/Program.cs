@@ -22,6 +22,7 @@ namespace esercizio__4
         {
             this.lato1 = lato1;
             this.lato2 = lato2;
+
         }
 
         public int Lato1
@@ -56,11 +57,28 @@ namespace esercizio__4
             }
         }
 
+        
+        public void Calcquadrato()
+        {
+            Console.WriteLine("Area Quadrato: " + lato1 * lato2);
+            Console.WriteLine("Perimetro Quadrato: " + lato1 * 4);
+        }
+
     }
     internal class Program
     {
         static void Main(string[] args)
         {
+            int latouno = 0;
+            int latodue = 0;
+            Console.WriteLine("Inserire lunghezza primo lato:");
+            latouno = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Inserire lunghezza secondo lato:");
+            latodue = Convert.ToInt32(Console.ReadLine());
+
+            Quadrato quadrato = new Quadrato(latouno, latodue);
+            quadrato.Calcquadrato();
+            Console.ReadLine();
         }
     }
 }
