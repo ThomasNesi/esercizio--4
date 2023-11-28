@@ -9,19 +9,16 @@ namespace esercizio__4
     class Quadrato
     {
         private int lato1;
-        private int lato2;
 
         public Quadrato()
         {
             lato1 = 0;
-            lato2 = 0;
         }
 
         //Costruttore con parametri
-        public Quadrato(int lato1, int lato2)
+        public Quadrato(int lato1)
         {
             this.lato1 = lato1;
-            this.lato2 = lato2;
 
         }
 
@@ -41,27 +38,17 @@ namespace esercizio__4
             }
         }
 
-        public int Lato2
-        {
-            get { return lato2; }
-            set
-            {
-                if (value > 0)
-                {
-                    lato2 = value;
-                }
-                else
-                {
-                    Console.WriteLine("Lato deve essere > 0");
-                }
-            }
-        }
-
         
         public void Calcquadrato()
         {
-            Console.WriteLine("Area Quadrato: " + lato1 * lato2);
+            Console.WriteLine("Area Quadrato: " + (lato1 * lato1));
             Console.WriteLine("Perimetro Quadrato: " + lato1 * 4);
+        }
+
+        public void Calccubo()
+        {
+            Console.WriteLine("Superficie totale del cubo: " + (6*(lato1*lato1)));
+            Console.WriteLine("Volume del cubo: " + (lato1*lato1*lato1));
         }
 
     }
@@ -70,14 +57,13 @@ namespace esercizio__4
         static void Main(string[] args)
         {
             int latouno = 0;
-            int latodue = 0;
             Console.WriteLine("Inserire lunghezza primo lato:");
             latouno = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Inserire lunghezza secondo lato:");
-            latodue = Convert.ToInt32(Console.ReadLine());
 
-            Quadrato quadrato = new Quadrato(latouno, latodue);
+            Quadrato quadrato = new Quadrato(latouno);
+            Quadrato cubo = new Quadrato(latouno);
             quadrato.Calcquadrato();
+            cubo.Calccubo();
             Console.ReadLine();
         }
     }
