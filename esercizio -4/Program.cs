@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace esercizio__4
 {
-    class Quadrato
+    public class Quadrato
     {
-        private int lato1;
+        public int lato1;
 
         public Quadrato()
         {
@@ -44,26 +44,37 @@ namespace esercizio__4
             Console.WriteLine("Area Quadrato: " + (lato1 * lato1));
             Console.WriteLine("Perimetro Quadrato: " + lato1 * 4);
         }
-
-        public void Calccubo()
+    }
+    public class Cubo : Quadrato
+    {
+        public int lato2 { get; set; } 
+        public Cubo()
         {
-            Console.WriteLine("Superficie totale del cubo: " + (6*(lato1*lato1)));
-            Console.WriteLine("Volume del cubo: " + (lato1*lato1*lato1));
+            lato2 = 0;
         }
-
+        public Cubo(int lato2)
+        {
+            this.lato2 = lato2;
+        }
+        public void CalcCubo()
+        {
+            Console.WriteLine("Superficie totale cubo: " + 6 * (lato2 * lato2));
+            Console.WriteLine("Volume cubo: " + lato2 * lato2 * lato2);
+        }
+        
     }
     internal class Program
     {
         static void Main(string[] args)
         {
             int latouno = 0;
-            Console.WriteLine("Inserire lunghezza primo lato:");
+            Console.WriteLine("Inserire lunghezza lato:");
             latouno = Convert.ToInt32(Console.ReadLine());
 
             Quadrato quadrato = new Quadrato(latouno);
-            Quadrato cubo = new Quadrato(latouno);
+            Cubo cubo = new Cubo(latouno);
             quadrato.Calcquadrato();
-            cubo.Calccubo();
+            cubo.CalcCubo();
             Console.ReadLine();
         }
     }
